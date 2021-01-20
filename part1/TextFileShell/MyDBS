@@ -1,0 +1,8 @@
+products     0.000GB
+> use products
+switched to db products
+> show collections
+products
+> db.products.find()
+{ "_id" : ObjectId("60074f94e9406c29440ca5a3"), "title" : "test", "price" : 12355, "description" : "adfadsf", "createdAt" : ISODate("2021-01-19T21:31:00.161Z"), "updatedAt" : ISODate("2021-01-19T21:31:00.161Z"), "__v" : 0 }
+>
