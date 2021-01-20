@@ -43,7 +43,7 @@ const Update = (props) => {
     /* I WILL USE BOOTSTRAP FORM AGAIN */
     return (
         <div className="container text-center">
-            <h3>Update Product</h3>
+            <h3>Update</h3>
             <form onSubmit={(e) => {
                 handleSubmit(e);
             }}

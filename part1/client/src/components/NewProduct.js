@@ -18,14 +18,14 @@ const NewProduct = (props) => {
             description
         }
 
-
+            //
         Axios.post("http://localhost:8000/api/products", newProduct)
             .then((res) => {
 
                 navigate("/products");
             })
             .catch((err) => console.error(err))
-    }
+    }// this is what
 
 
 
