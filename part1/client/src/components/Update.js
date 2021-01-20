@@ -8,7 +8,7 @@ const Update = (props) => {
     const [price, setPrice] = useState(props.price);
     const [description, setDescription] = useState(props.description);
 
-    const [product, setProduct] = useState(props);//set default to current data
+    const [product, setProduct] = useState(props);
 
     useEffect(() => {
         Axios.get(`http://localhost:8000/api/products/${product.id}`)
