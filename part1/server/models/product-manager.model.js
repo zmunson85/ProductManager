@@ -10,7 +10,7 @@ const ProductSchema = new mongoose.Schema(
         price: {
             type: Number,
             required: [true, "Product price is required"],
-            min: [0.01, "Product price cannot be $0"]
+            min: [2, "Price needs to be more than 2 characters..ie 01,02..."]
         },
         description: {
             type: String,
