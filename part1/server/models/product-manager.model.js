@@ -9,7 +9,7 @@ const ProductSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: [true, "{PATH}is required."],
-        minlength: [3, "{PATH} must be at least {minlength} characters"]
+        minlength: [3, "{PATH} must be at least {MINLENGTH} characters"]
     },
     description: {
         type: String,

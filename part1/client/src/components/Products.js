@@ -35,14 +35,15 @@ const Products = (props) => {
     return (
         <div className="container">
             <NewProduct />
-            <hr />
-            <h1 className="text-center">All Products</h1>
+            <hr /> {/* this adds a solid line seperation between input and output */}
+            <h1 className="text-center">Select A Product</h1>
+    
             {
                 products.map((product) => {
                     return (
                         <div key={product._id} className="row mb-2 justify-content-center">
-                            <div className="col-md-7 p-2 text-center">
-                                <Link to={"/products/" + product._id}>{product.title}</Link>
+                            <div className="col-lg-7 p-2 text-center">
+                                <Link style={{fontSize:"25px"}} className="text-center" to={"/products/" + product._id}>{product.title}</Link>
                             </div>
                         </div>
                     );

@@ -6,6 +6,7 @@ import NoProductFound from "./components/NoProductFound";
 import NewProduct from "./components/NewProduct";
 import Products from "./components/Products";
 import Product from "./components/Product";
+import Update from "./components/Update"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Products path="/products" />
         <Product path="/products/:id" />
         <NoProductFound default />
+        <Update path="/products/update/:id"/>
       </Router>
     </div>
   );

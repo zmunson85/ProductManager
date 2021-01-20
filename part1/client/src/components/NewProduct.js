@@ -35,7 +35,7 @@ const NewProduct = (props) => {
 
         //BOOTSTRAP FORM, I JUST CHANGED THE INPUT AND onSubmit/handleSubmit added some inline css...
         <div className="container text-center">
-            <h1 style={{marginRight:"140px"}}> Product Manager Part 1</h1>
+            <h1 style={{marginRight:"140px"}}> Product Manager</h1>
             <form onSubmit={(e) => {
                 handleSubmit(e);
             }}
