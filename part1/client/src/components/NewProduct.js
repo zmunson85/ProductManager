@@ -27,12 +27,7 @@ const NewProduct = (props) => {
             .catch((err) => console.error(err))
     }// this is what
 
-
-
-
-
-    return (
-
+return (
         //BOOTSTRAP FORM, I JUST CHANGED THE INPUT AND onSubmit/handleSubmit added some inline css...
         <div className="container text-center">
             <h1 style={{marginRight:"140px"}}> Product Manager</h1>

@@ -3,11 +3,11 @@ const Product = require("../models/product-manager.model");
 
 module.exports = {
     create: function (request, response) {
-        console.log("create method executed", request.body);
+        console.log("did it work?", request.body);
 
         Product.create(request.body)
             .then((product) => {
-                console.log("product created:", product)
+                console.log("New Product Created:", product)
                 response.json(product);
             })
             .catch((err) => {
@@ -16,7 +16,7 @@ module.exports = {
     },
 
     getAll(request, response) {
-        console.log("getAll method executed");
+        console.log("Showing All Products");
         Product.find()
             .then((products) => {
                 response.json(products);
@@ -27,7 +27,7 @@ module.exports = {
     },
 
     getOne(request, response) {
-        console.log("getOne method executed", "url params: ", request.params);
+        console.log("One Product Should Be Showing", "url params: ", request.params);
 
         Product.findById(request.params.id)
             .then((product) => {
@@ -36,7 +36,7 @@ module.exports = {
     },
 
     delete(request, response) {
-        console.log("delete method executed", "url params:", request.params);
+        console.log("It has been Deleted!", "url params:", request.params);
 
         Product.findByIdAndDelete(request.params.id)
             .then((product) => {
@@ -48,7 +48,7 @@ module.exports = {
     },
 
     update(request, response) {
-        console.log("update methond executed", "url params: ", request.params);
+        console.log("You should see an update", "url params: ", request.params);
 
         Product.findByIdAndUpdate(request.params.id, request.body, {
             runValidators: true,
