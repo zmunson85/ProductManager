@@ -6,7 +6,12 @@ const NewProduct = (props) => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const [errors, setErrors]= useState({
+        title: "",
+        price: "",
+        description: ""
 
+    });
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -24,7 +29,19 @@ const NewProduct = (props) => {
 
                 navigate("/products");
             })
-            .catch((err) => console.error(err))
+            .catch((err) =>{
+                if(err.response.data.errors){  //if this exists, 
+                    setErrors({
+                        ...errors,
+                        title: err.response.data.errors.title.message,
+                        price: err.response.data.errors.price.message,
+                        description: err.response.data.errors.description.message
+                    })
+                }
+                console.error(err.response)//save to state, put error messages into state. USE STATUS 400, if not they will be in the .then, it will never reach the .catch
+            }) 
+            
+                
     }// this is what
 
     return (
@@ -45,6 +62,7 @@ const NewProduct = (props) => {
                                 setTitle(e.target.value);
                             }}
                         />
+                        {errors.title && <p style={{ fontSize: "24px", color: "red" }}>{errors.title}</p>}
                     </div>
                 </div>
                 <div className="form-group row" style={{ backgroundColor: "#f2f2f2", padding: "15px", width: "80%" }}>
@@ -57,6 +75,7 @@ const NewProduct = (props) => {
                                 setPrice(e.target.value);
                             }}
                         />
+                        {errors.price && <p style={{fontSize:"24px", color: "red" }} >{errors.price}</p>}
                     </div>
                 </div>
                 <div className="form-group row" style={{ backgroundColor: "#f2f2f2", padding: "15px", width: "80%" }}>
@@ -69,6 +88,7 @@ const NewProduct = (props) => {
                                 setDescription(e.target.value);
                             }}
                         />
+                        {errors.description && <p style={{ fontSize: "24px", color: "red" }}>{errors.description}</p>}
                     </div>
                 </div>
                 <input style={{marginRight: "170px", width: "300px"}} type="submit" className="btn btn-light" value="Create New Product"/>

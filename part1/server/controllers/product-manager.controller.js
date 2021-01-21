@@ -1,4 +1,4 @@
-const { response } = require("express");
+// const { response } = require("express");
 const Product = require("../models/product-manager.model");
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
                 response.json(product);
             })
             .catch((err) => {
-                response.json(err);
+                response.status(400).json(err);
             })
     },
 
@@ -22,7 +22,7 @@ module.exports = {
                 response.json(products);
             })
             .catch((err) => {
-                response.json(err);
+                response.status(400).json(err);
             })
     },
 
@@ -33,20 +33,20 @@ module.exports = {
             .then((product) => {
                 response.json(product);
             })
-    },
-
-    delete(request, response) {
-        console.log("It has been Deleted!", "url params:", request.params);
-
-        Product.findByIdAndDelete(request.params.id)
-            .then((product) => {
-                response.json(product);
-            })
             .catch((err) => {
                 response.json(err);
             })
     },
 
+
+    delete (request, response) {
+    console.log("It has been Deleted!", "url params:", request.params);
+
+    Product.findByIdAndDelete(request.params.id)
+        .then((product) => {
+            response.json(product);
+        })
+    },
     update(request, response) {
         console.log("You should see an update", "url params: ", request.params);
 

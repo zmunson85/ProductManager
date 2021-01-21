@@ -63,6 +63,7 @@ const Update = (props) => {
                 </div>
                 <div className="form-group row" style={{ backgroundColor: "#f2f2f2", padding: "12px" }}>
                     <label className="col-lg-2 col-form-label text-left">Price: </label>
+                    
                     <div className='col-lg-10'>
                         <input
                             type="text"
