@@ -1,6 +1,6 @@
 import React from "react";
 
-const NoProductFound = (props) => {
+const Default = (props) => {
     return(
         <div></div>
     ) 
@@ -8,4 +8,4 @@ const NoProductFound = (props) => {
 
 };
 
-export default NoProductFound;
+export default Default;
