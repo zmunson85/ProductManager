@@ -3,33 +3,33 @@ import Axios from "axios";
 import { navigate, Link } from "@reach/router";
 import NewProduct from "../components/NewProduct";
 
-const Products = (props) => {
+const ProductList = (props) => {
 
-    const [products, setProducts] = useState(null);
+    const [productList, setProductList] = useState(null);
     useEffect(() => {
-        Axios.get("http://localhost:8000/api/products")
+        Axios.get("http://localhost:8000/api/productList")
             .then((res) => {
                 console.log(res);
-                setProducts(res.data);
+                setProductList(res.data);
             })
             .catch((err) => {
                 console.error(err);
             })
     }, []);
     function handleDelete(delete_id) {
-        Axios.delete(`http://localhost:8000/api/products/${delete_id}`)
+        Axios.delete(`http://localhost:8000/api/productList/${delete_id}`)
             .then(res => {
                 console.log("deleted product", res.data);
-                const filteredProducts = products.filter((product) => {
+                const filteredProductList = productList.filter((product) => {
                     return product._id !== delete_id;
                 }
                 )
-                setProducts(filteredProducts);
+                setProductList(filteredProductList);
             })
             .catch(err => { console.error(err) })
     }
     
-    if (products === null) {
+    if (productList === null) {
         return "There Are No Products To Display"
     }
     return (
@@ -39,11 +39,11 @@ const Products = (props) => {
             <h1 className="text-center">Select A Product</h1>
     
             {
-                products.map((product) => {
+                productList.map((product) => {
                     return (
                         <div key={product._id} className="row mb-2 justify-content-center">
                             <div className="col-lg-7 p-2 text-center">
-                                <Link style={{fontSize:"25px"}} className="text-center" to={"/products/" + product._id}>{product.title}</Link>
+                                <Link style={{fontSize:"25px"}} className="text-center" to={"/productList/" + product._id}>{product.title}</Link>
                             </div>
                         </div>
                     );
@@ -53,4 +53,4 @@ const Products = (props) => {
     );
 };
 
-export default Products;
+export default ProductList;
