@@ -16,7 +16,7 @@ function App() {
         <NewProduct path="/products/new" />
         <Products path="/products" />
         <Product path="/products/:id" />
-        <NoProductFound default />
+        <Default default />
         <Update path="/products/update/:id"/>
       </Router>
     </div>
