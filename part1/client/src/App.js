@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import NoProductFound from "./components/NoProductFound";
 import NewProduct from "./components/NewProduct";
-import Products from "./components/Products";
+import ProductList from "./components/ProductList";
 import Product from "./components/Product";
 import Update from "./components/Update"
 
@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Redirect from="/" to="/products" noThrow="true" />
         <NewProduct path="/products/new" />
-        <Products path="/products" />
+        <ProductList path="/productList" />
         <Product path="/products/:id" />
         <Default default />
         <Update path="/products/update/:id"/>
